@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Drivers Report
+{% endblock %}
+
+{% block body %}
+
+{% if driver_id == None or driver_id == "" or driver == None %}
+    <h1>Drivers</h1>
+    <table class="table table-hover" style="width:50%" align="center">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Driver</th>
+          <th scope="col">Code</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        {% for result in results %}
+            <tr>
+                <td scope="row">{{ loop.index }}</td>
+                <td>{{ result['full_name'] }}</td>
+                <td><a href="drivers?driver_id={{ result['abr']}}">{{ result['abr'] }}</a></td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% elif driver_id != None %}
+    <h1>Drivers</h1>
+    <table class="table table-hover" style="width:50%" align="center">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">Driver</th>
+          <th scope="col">Club</th>
+          <th scope="col">Time</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr>
+            <td scope="row">{{ driver['full_name']}}</td>
+            <td>{{ driver['club']}}</td>
+            <td>{{ driver['time']}}</td>
+        </tr>
+      </tbody>
+    </table>
+{% endif %}
+{% endblock %}
