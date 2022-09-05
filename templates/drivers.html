@@ -21,7 +21,7 @@ Drivers Report
             <tr>
                 <td scope="row">{{ loop.index }}</td>
                 <td>{{ result['full_name'] }}</td>
-                <td><a href="drivers?driver_id={{ result['abr']}}">{{ result['abr'] }}</a></td>
+                <td><a href="drivers?driver_id={{ result['abbreviation']}}">{{ result['abbreviation'] }}</a></td>
             </tr>
         {% endfor %}
       </tbody>
@@ -39,7 +39,7 @@ Drivers Report
       <tbody class="table-group-divider">
         <tr>
             <td scope="row">{{ driver['full_name']}}</td>
-            <td>{{ driver['club']}}</td>
+            <td>{{ driver['club_name']}}</td>
             <td>{{ driver['time']}}</td>
         </tr>
       </tbody>
